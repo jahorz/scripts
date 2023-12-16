@@ -7,7 +7,7 @@ Created on Wed Dec  6 15:57:30 2023
 import json
 import matplotlib.pyplot as plt
 
-counts_file ="C:/Users/jakob/Documents/02_Uni/Studium/01_Bachelorarbeit/data_dump/coverage_analysis/counts_file2.txt"
+counts_file ="PATH/TO/COUNT/COVERAGE/file.json"
 
 
 with open(counts_file) as jfile:
@@ -48,17 +48,3 @@ plt.xticks(size=20)
 plt.axvline(30, label="mean coverage",)
 
 plt.show()
-'''
-
-fig = plt.figure()
-
-plt.ticklabel_format(style = 'scientific')
-plt.xlim([0, 80])
-plt.bar(coverage_cut, count_cut, width = 0.6)
-
-plt.xlabel("coverage")
-plt.ylabel("count")
-plt.title("Coverage analysis")
-
-plt.show()
-'''
