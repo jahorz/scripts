@@ -2,7 +2,7 @@
 """
 Created on Wed Dec  6 15:57:30 2023
 
-@author: jakob
+@author: Jakob Horz: j.horz@tu-bs.de
 """
 import json
 import matplotlib.pyplot as plt
