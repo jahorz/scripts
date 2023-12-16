@@ -2,8 +2,9 @@
 """
 Created on Thu Jul  6 14:13:18 2023
 
-@author: jakob
+@author: Jakob Horz j.horz@tu-bs.de
 """
+
 
 import json
 
