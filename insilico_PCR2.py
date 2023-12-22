@@ -29,7 +29,7 @@ blastn \
 
 
 """
-
+#Collects BLAST hits and stores in lists locally
 def get_PCR_fragments(blast_results):
     contig = []
     subject_start = []
@@ -56,6 +56,7 @@ def get_PCR_fragments(blast_results):
     for i in range(len(contig)):
         orientation_i = subject_start[i] < subject_end[i]
         for s in range(c, len(contig)):
+            #checks if primers are oriented towards each other on opposing strands 
             orientation_s = subject_start[s] < subject_end[s]
             if contig[i] == contig[s] and orientation_i != orientation_s:
                 if orientation_i == True:
@@ -64,6 +65,8 @@ def get_PCR_fragments(blast_results):
                 else:
                     size = int(subject_start[i]) - int(subject_start[s])
                     fragment_site = str(subject_start[s]) + "-" + str(subject_start[i])
+                    
+                #choose cutoff values for the desired fragment size
                 if 20 < size < 1400:
                     fragment.append(size)
                     primer_hits.append(str(size) + " bp \t" + primer_name[i] + " " + primer_name[s] +" " +  contig[i])
@@ -72,7 +75,7 @@ def get_PCR_fragments(blast_results):
         c = c+1
         
     return primer_hits, igv_prompt
-
+#Filter the initial fragments for the provided primer IDs 
 def primer_pairs(primer_hits, primer1, primer2):
     filtered_fragments = []
     for i in range(len(primer_hits)):
